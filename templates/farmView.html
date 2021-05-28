@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  {% block title %}Irrigation Planner{% endblock %}
+    {% block styles %}
+        {{ bootstrap.load_css() }}
+        {% endblock %}
+
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+  <h1>Irrigation Planner</h1>
+</div>
+
+<div class="container">
+    <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+
+          <strong class="d-inline-block mb-2 text-primary">Restriction</strong>
+          <h3 class="mb-0">Water restriction for today</h3>
+          <div class="mb-1 text-muted">{{ date }}</div>
+          <h1 class="card-text mb-auto">{{ restriction }}</h1>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        </div>
+      </div>
+         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+
+          <strong class="d-inline-block mb-2 text-primary">Fields</strong>
+          <h3 class="mb-0">Field information</h3>
+          <div class="mb-1 text-muted">{{ date }}</div>
+          <p class="card-text mb-auto">{{ table }}</p>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        </div>
+      </div>
+    </div>
+        <div class="col-md-6">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Weather</strong>
+                 <div class="page-content page-container" id="page-content">
+
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+
+                <div class="col-lg-8 grid-margin stretch-card">
+                    <!--weather card-->
+                    <div class="card card-weather">
+                        <div class="card-body">
+                            <div class="weather-date-location">
+                                <h3>Today</h3>
+                                <p class="text-gray"> <span class="weather-date"></span>{{ date }} <span class="weather-location">{{ city }}</span> </p>
+                            </div>
+                            <div class="weather-data d-flex">
+                                <div class="mr-auto">
+                                     <img src={{ todayIcon }}>
+                                    <h4 class="display-3">{{ currentTemperature }} <span class="symbol">°</span>C</h4>
+                                    <h6>Today's high: {{ todayMinTemp }}</h6>
+                                    <h6>Today's low: {{ todayMaxTemp }}</h6>
+                                    <h7> Conditions: {{ rain }}</h7>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="d-flex weakly-weather">
+                                <div class="weakly-weather-item">
+                                    <p class="mb-0"><h5> Tomorrow </h5> <i class="mdi mdi-weather-cloudy"></i>
+                                    <img src={{ tomorrowIcon }}>
+                                    <p class="mb-0"> Minimum temperature: {{ tomorrowMinTemp }}° </p>
+                                    <p class="mb-0"> Maximum temperature: {{ tomorrowMaxTemp }}° </p>
+                                </div>
+                            </div>
+                        </div>
+        </div>
+      </div>
+    </div>
+        </div>
+                 </div>
+        </div>
+        </div>
+        </div>
+     </div>
+</div>
+{#         <div class="row mb-2">#}
+{#        <div class="col-md-6">#}
+
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  {% block title %}Irrigation Planner{% endblock %}
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+  <h1>Irrigation Planner</h1>
+</div>
+    <form method="post">
+    <label for="email">Email </label><br>
+    <input type="text" id="email" name="email"><br>
+    <label for="consentNumber">Consent Number </label><br>
+    <input type="text" id="consentNumber" name="consentNumber"><br>
+    <label for="address">Address</label><br>
+    <input type="text" id="address" name="address"><br>
+    <label for="fields">Field amount</label><br>
+    <input type="text" id="fields" name="fields"><br>
+    <label for="password">Password</label><br>
+    <input type="text" id="password" name="password"><br>
+    <button type="submit" formmethod="post">Sign up</button>
+    </form>
+
+{% endblock %}

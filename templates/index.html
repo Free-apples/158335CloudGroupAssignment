@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  {% block title %}Irrigation Planner{% endblock %}
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center" style="padding: 30px">
+  <h1>Irrigation Planner</h1>
+</div>
+    <div style="padding-block: 30px">
+    <p style="text-align: center" class="lead">Welcome to the one stop shop for irrigation planning. The irrigation planner
+    will collate data regarding water restrictions, soil moisture levels and the weather
+    forecast to better help you plan your irrigation usage. </p>
+    </div>
+<div>
+
+<a href="https://irrigationplanner.com/cognito/login" class="btn btn-primary btn-lg btn-block">Login</a>
+<a href="signup.html" class="btn btn-primary btn-lg btn-block">Signup</a>
+</div>
+{% endblock %}
