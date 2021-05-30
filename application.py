@@ -155,23 +155,23 @@ def signup():
         consentNo = loginInfo["consentNumber"]
         address = loginInfo["address"]
         password = loginInfo["password"]
-        #fieldAmount = int(loginInfo["fields"])
-        # dynamodb = boto3.resource('dynamodb', region_name='ap-southeast-2')
-        # usersTable = dynamodb.Table("users")
-        # usersTable.put_item(Item={'Email address': email,
-        #                           'Consent number' : consentNo,
-        #                           'Address': address})
-        # restrictionTable = dynamodb.Table("WaterRestriction")
-        # restrictionTable.put_item(Item={"consentNo": consentNo})
-        # fieldTable = dynamodb.Table("moistureLevels")
-        # for i in range(1, fieldAmount):
-        #     fieldTable.put_item(Item={"fieldNo": i, "consentNo" : consentNo})
+        fieldAmount = int(loginInfo["fields"])
+        dynamodb = boto3.resource('dynamodb', region_name='ap-southeast-2')
+        usersTable = dynamodb.Table("users")
+        usersTable.put_item(Item={'Email address': email,
+                                  'Consent number' : consentNo,
+                                  'Address': address})
+        restrictionTable = dynamodb.Table("WaterRestriction")
+        restrictionTable.put_item(Item={"consentNo": consentNo})
+        fieldTable = dynamodb.Table("moistureLevels")
+        for i in range(1, fieldAmount):
+            fieldTable.put_item(Item={"fieldNo": i, "consentNo" : consentNo})
 
-        # email = request.form.get('email')
-        # password = request.form.get('password')
-        # consentNumber = request.form.get('consentNumber')
-        # address = request.form.get('address')
-        #print(email)
+        email = request.form.get('email')
+        password = request.form.get('password')
+        consentNumber = request.form.get('consentNumber')
+        address = request.form.get('address')
+        print(email)
         client = boto3.client('cognito-idp')
         CLIENT_ID = '4i2jg0hkgvb7363ch4570borea'
         CLIENT_SECRET = '1qgjvggt8oclpm21v0qbni7j1lm8usrscm2arltgoddearql9832'
